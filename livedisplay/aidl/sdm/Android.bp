@@ -38,18 +38,18 @@ cc_binary {
     init_rc: ["vendor.lineage.livedisplay-service.sdm.rc"],
     
     vintf_fragments: select(soong_config_variable("livedisplay_sdm", "enable_dm"), {
-        false: [], 
+        "false": [], // <--- Kasih tanda kutip di sini
         default: ["vendor.lineage.livedisplay-service.sdm-dm.xml"],
     }) + select(soong_config_variable("livedisplay_sdm", "enable_pa"), {
-        false: [], 
+        "false": [], // <--- Kasih tanda kutip di sini
         default: ["vendor.lineage.livedisplay-service.sdm-pa.xml"],
     }),
     
     cflags: select(soong_config_variable("livedisplay_sdm", "enable_dm"), {
-        false: ["-DENABLE_DM=false"],
+        "false": ["-DENABLE_DM=false"], // <--- Kasih tanda kutip di sini
         default: ["-DENABLE_DM=true"],
     }) + select(soong_config_variable("livedisplay_sdm", "enable_pa"), {
-        false: ["-DENABLE_PA=false"],
+        "false": ["-DENABLE_PA=false"], // <--- Kasih tanda kutip di sini
         default: ["-DENABLE_PA=true"],
     }),
     
